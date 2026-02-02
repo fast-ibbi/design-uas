@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Berita - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <i class="fas fa-newspaper me-2"></i>Magzine Admin
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">
+                            <i class="fas fa-eye me-1"></i>Lihat Website
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-arrow-left me-1"></i>Kembali
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Header -->
+                <div class="mb-4">
+                    <h2 class="text-center">
+                        <i class="fas fa-edit text-warning me-2"></i>Edit Berita
+                    </h2>
+                </div>
+
+                <!-- Form -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Form Edit Berita</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="editForm" onsubmit="submitForm(event)">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- Title -->
+                                    <div class="mb-3">
+                                        <label for="title" class="form-label">
+                                            Judul <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="title" name="title" required
+                                            value="Your most unhappy customers are your greatest source of learning.">
+                                    </div>
+
+                                    <!-- Description -->
+                                    <div class="mb-3">
+                                        <label for="description" class="form-label">
+                                            Deskripsi <span class="text-danger">*</span>
+                                        </label>
+                                        <textarea class="form-control" id="description" name="description" rows="3"
+                                            required>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</textarea>
+                                    </div>
+
+                                    <!-- Category -->
+                                    <div class="mb-3">
+                                        <label for="category" class="form-label">
+                                            Kategori <span class="text-danger">*</span>
+                                        </label>
+                                        <select class="form-select" id="category" name="category" required>
+                                            <option value="">Pilih kategori...</option>
+                                            <option value="bisnis" selected>Bisnis</option>
+                                            <option value="teknologi">Teknologi</option>
+                                            <option value="olahraga">Olahraga</option>
+                                            <option value="hiburan">Hiburan</option>
+                                            <option value="politik">Politik</option>
+                                            <option value="kesehatan">Kesehatan</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Image Upload -->
+                                    <div class="mb-3">
+                                        <label for="image" class="form-label">
+                                            Gambar Berita
+                                        </label>
+                                        <input type="file" class="form-control" id="image" name="image" accept="image/*"
+                                            onchange="previewImage(this)">
+                                        <small class="form-text text-muted">Format: JPG, PNG, GIF. Maksimal 2MB.
+                                            Kosongkan jika tidak ingin mengubah gambar.</small>
+                                        <div class="mt-2">
+                                            <img id="imagePreview" src="https://picsum.photos/seed/business1/200/150"
+                                                alt="Current Image"
+                                                style="max-width: 200px; max-height: 150px; object-fit: cover; border-radius: 4px;">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <!-- Author -->
+                                    <div class="mb-3">
+                                        <label for="author" class="form-label">
+                                            Penulis <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="author" name="author" required
+                                            value="Sergey Campbell">
+                                    </div>
+
+                                    <!-- Author Position -->
+                                    <div class="mb-3">
+                                        <label for="position" class="form-label">
+                                            Jabatan Penulis <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="position" name="position" required
+                                            value="Senior Editor">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="mb-3">
+                                <label for="content" class="form-label">
+                                    Isi Konten <span class="text-danger">*</span>
+                                </label>
+                                <textarea class="form-control" id="content" name="content" rows="8"
+                                    required>Jauh sekali, di balik pegunungan kata, jauh dari negeri Vokalia dan Consonantia, tinggallah teks-teks buta. Mereka tinggal terpisah di Bookmarksgrove tepat di pantai Semantics, sebuah samudra bahasa yang luas.
+
+Sebuah sungai kecil bernama Duden mengalir di dekat tempat mereka dan memasok mereka dengan regelialia yang diperlukan. Ini adalah negara paradisematik, di mana bagian-bagian kalimat yang dipanggang terbang ke mulut Anda.
+
+Big Oxmox menyarankan agar dia tidak melakukannya, karena ada ribuan Koma buruk, Tanda Tanya liar, dan Semikoli licik, tetapi Teks Buta Kecil tidak mendengarkan. Dia mengemas tujuh versalianya, memasukkan inisialnya ke dalam sabuk dan memulai perjalanannya.</textarea>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="d-flex gap-2 justify-content-between">
+                                <button type="button" class="btn btn-danger" onclick="deleteArticle()">
+                                    <i class="fas fa-trash me-1"></i>Hapus
+                                </button>
+                                <div class="d-flex gap-2">
+                                    <a href="index.html" class="btn btn-secondary">
+                                        <i class="fas fa-times me-1"></i>Batal
+                                    </a>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save me-1"></i>Simpan Perubahan
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
